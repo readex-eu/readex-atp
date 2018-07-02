@@ -1,0 +1,24 @@
+/**
+ * @file atpconfig.h.in
+ * 
+ * @author Uldis Locans (uldis.locans@intel.com)
+ *
+ * @brief This file contains a template which is used by cmake to create a header
+ * file with the ATP version information.
+ *
+ * Takes the version information of ATP defined in CMake as well ass commit information
+ * from git and creates a header file, that is used in ATP to check and display the 
+ * version of the library.
+ **/
+#ifndef _ATP_CONFIG_IN
+#define _ATP_CONFIG_IN
+
+#define ATP_VERSION_MAJOR @ATP_VERSION_MAJOR@
+
+#define ATP_VERSION_MINOR @ATP_VERSION_MINOR@
+
+#define ATP_VERSION_PATCH @ATP_VERSION_PATCH@
+
+#define ATP_GIT_COMMIT_HASH "@ATP_GIT_COMMIT_HASH@"
+
+#endif
