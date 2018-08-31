@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required (VERSION 3.10.1)
 project (ATP)
 #version number.
 set (ATP_VERSION_MAJOR 1)
@@ -38,7 +38,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
 #Add custom compilation flags
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DDEBUG")
-
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lm -ldl -lstdc++")
 
 #
 # READEX RRL is required for the build
@@ -60,7 +60,7 @@ endif()
 
 #
 # lua is required for the build
-find_package(Lua REQUIRED)
+find_package(Lua)
 if(LUA_FOUND)	 
      message(STATUS "Note: recommanded LUA versions are => 5.1")
 
@@ -70,7 +70,8 @@ if(LUA_FOUND)
      ENDMACRO()
 
 else()
-     message(SEND_ERROR "LUA not found")
+     message(FATAL_ERROR "LUA not found! Make sure LUA is installed, if LUA is
+     installed in custom directory set LUA_DIR environment variable where it can be found.")
 endif(LUA_FOUND)
 
 
